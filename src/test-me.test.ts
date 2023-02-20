@@ -1,7 +1,7 @@
-import {testMe} from "./test-me";
+import { testMe } from "./test-me";
 
 describe('testMe"', () => {
-   it('should return 10',  () => {
-       expect(testMe()).toEqual(10);
-    });
+  it("should return 10", () => {
+    expect(testMe()).toEqual(10);
+  });
 });

@@ -1,4 +1,6 @@
 node_modules
+build
+coverage
 *.pem
 
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio, WebStorm and Rider

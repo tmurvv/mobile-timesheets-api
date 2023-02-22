@@ -7,7 +7,7 @@
     "build": "npm run test && npm run lint && tsc",
     "dev": "nodemon server.ts",
     "lint": "eslint src",
-    "prettier": "prettier src/*.* --write",
+    "prettier": "prettier src/**/*.* --write",
     "test": "jest --verbose --coverage",
     "type": "tsc --noemit",
     "undo": "tsc --build --clean"

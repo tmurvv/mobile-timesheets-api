@@ -1,44 +1,50 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 // import bcrypt from 'bcryptjs';
 
 interface IUser {
-    firstname?: string,
-    lastname?: string,
-    email: object,
-    role?: string,
-    password: string,
-    passwordChangedAt?: object,
-    reminderLastSent?: object
+  firstname?: string;
+  lastname?: string;
+  email: object;
+  role?: string;
+  password: string;
+  passwordChangedAt?: object;
+  reminderLastSent?: object;
 }
 
 // Users
-const usersSchema = new mongoose.Schema<IUser>({
-    firstname: {type: String},
-    lastname: {type: String},
+const usersSchema = new mongoose.Schema<IUser>(
+  {
+    firstname: { type: String },
+    lastname: { type: String },
     email: {
-        type: String,
-        trim: true,
-        lowercase: true,
-        unique: true,
-        required: 'Email address is required',
-        match: [/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(.\w{2,3})+$/, 'Email address not valid. Please try again.']
+      type: String,
+      trim: true,
+      lowercase: true,
+      unique: true,
+      required: "Email address is required",
+      match: [
+        /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(.\w{2,3})+$/,
+        "Email address not valid. Please try again.",
+      ],
     },
     role: {
-        type: String
+      type: String,
     },
     password: {
-        type: String,
-        minlength: 8
+      type: String,
+      minlength: 8,
     },
     passwordChangedAt: {
-        type: Date,
-        default: Date.now
+      type: Date,
+      default: Date.now,
     },
     reminderLastSent: {
-        type:Date, 
-        default: Date.now
-    }
-},{ versionKey: false });
+      type: Date,
+      default: Date.now,
+    },
+  },
+  { versionKey: false }
+);
 
 // usersSchema.pre('save', async function(next) {
 //     if(!this.isModified('password')) return next;
@@ -61,4 +67,4 @@ const usersSchema = new mongoose.Schema<IUser>({
 //     return false;
 // }
 
-export const Users = mongoose.model('Users', usersSchema);
+export const Users = mongoose.model("Users", usersSchema);

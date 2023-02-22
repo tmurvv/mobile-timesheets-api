@@ -1,15 +1,17 @@
 import express, { Request, Response } from "express";
 
-import {authRouter, userRouter} from "./routes";
+import { authRouter, userRouter } from "./routes";
 
 const app = express();
 
-app.use(express.json({
+app.use(
+  express.json({
     inflate: true,
-    limit: '100kb',
+    limit: "100kb",
     strict: true,
-    type: 'application/json',
-}))
+    type: "application/json",
+  })
+);
 
 app.get(
   "/",
@@ -19,6 +21,5 @@ app.get(
 
 app.use("/api/v1/auth", authRouter);
 app.use("/api/v1/users", userRouter);
-
 
 export default app;
